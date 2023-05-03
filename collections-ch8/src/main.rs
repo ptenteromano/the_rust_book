@@ -14,13 +14,13 @@ fn main() {
     let median = vectors::find_median(&vec);
     match median {
         Some(x) => println!("Found median: {}", x),
-        _ => println!("No median found!"),
+        None => println!("No median found!"),
     }
 
     let mode = vectors::find_mode(&vec);
     match mode {
         Some(x) => println!("Found mode: {}", x),
-        _ => println!("No mode found!"),
+        None => println!("No mode found!"),
     }
 
     // Strings - Piglatin
@@ -30,4 +30,13 @@ fn main() {
     println!("{}", piglatin_result);
 
     // Hashmap - Company organization
+    let mut company = company::Company::new();
+
+    company.adjust("add maddie to marketing");
+    company.adjust("add phil to engineering");
+    company.adjust("add bob to marketing");
+
+    company.list_all();
+    company.adjust("remove bob from marketing");
+    company.list("marketing");
 }
